@@ -3,14 +3,18 @@
 import React, {useEffect, useRef} from 'react';
 import dynamic from 'next/dynamic';
 import {Button, Icon} from '@gravity-ui/uikit';
+// Recomendado: usa el paquete oficial de iconos
+// npm i @gravity-ui/icons
 import styles from './FloatingBar.module.scss';
 import {gsap} from 'gsap';
+
+import GitHub from '../assets/icons/github.svg';
 import Figma from '../assets/icons/figma.svg';
-import Github from '../assets/icons/github.svg';
 
 // Ruta correcta de tu Shuffle (ajústala a tu estructura real)
 // Si está en src/components/Shuffle/Shuffle.tsx:
 const Shuffle = dynamic(() => import('../components/Shufle'), { ssr: false });
+
 
 interface FloatingBarProps {
   light?: boolean;
@@ -68,7 +72,7 @@ export default function FloatingBar({light = false}: FloatingBarProps) {
             target="_blank"
             rel="noreferrer"
           >
-            <Icon data={Github} size={16} />
+            <Icon data={GitHub} size={16} />
             &nbsp;GitHub
           </Button>
 

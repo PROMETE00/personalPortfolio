@@ -1,20 +1,27 @@
+
 .floatingBar {
   position: fixed;
   top: 16px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 1000;
-
+  
+  /* MÁS ANCHO controlado y responsivo */
   width: clamp(520px, 72vw, 1000px);
+
+  /* MÁS BAJITO: padding vertical pequeño, horizontal cómodo */
   padding: 12px 20px;
 
-  background: rgba(20, 20, 24, 0.32);
+  /* glass */
+  background: rgba(20, 20, 24, 0.32);      /* un poco más opaco para que no se vea tanto lo de atrás */
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.45);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+
   border-radius: 20px;
 
+  /* evita artefactos del blur y desbordes */
   overflow: hidden;
   isolation: isolate;
 }
@@ -30,40 +37,49 @@
 /* Columna izquierda: títulos */
 .left {
   display: grid;
-  gap: 4px;        /* menos espacio entre líneas */
-  min-width: 0;
+  gap: 6px;
+  min-width: 0; /* permite truncar si hace falta */
 }
 
-/* Título principal (centrado y más grande) */
-.titleCenter {
+/* TEXTO MÁS GRANDE DEL WRAPPER */
+.title {
   margin: 0;
-  text-align: center;
-  font-weight: 900;
-  letter-spacing: 0.3px;
-  font-size: clamp(30px, 5vw, 48px);
-  line-height: 1.05;
-  /* Si quieres otra fuente SOLO aquí:
-     font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-  */
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  /* Grande pero responsivo */
+  font-size: clamp(22px, 3.2vw, 36px);
+  line-height: 1.1;
 }
 
-/* Subtítulos (más pequeños, a la izquierda) */
-.sub {
+.subtitle {
   margin: 0;
-  text-align: left;
-  font-weight: 600;
   opacity: 0.95;
-  font-size: clamp(12px, 1.6vw, 16px);
+  font-weight: 600;
+  /* un poco más grande también */
+  font-size: clamp(14px, 2.0vw, 18px);
   line-height: 1.15;
 }
 
+/* Botones a la derecha */
 .actions {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
 }
 
+/* Tema claro opcional desde el componente: <FloatingBar light /> */
 .floatingBarLight {
   background: rgba(255, 255, 255, 0.28);
   border-color: rgba(255, 255, 255, 0.35);
+}
+
+/* Responsive: apilar en móvil */
+@media (max-width: 720px) {
+  .inner {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .actions {
+    justify-content: center;
+  }
 }

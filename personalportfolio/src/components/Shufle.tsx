@@ -39,7 +39,7 @@ const Shuffle: React.FC<ShuffleProps> = (props) => {
   const {
     text, className = '', style = {}, shuffleDirection = 'right', duration = 0.35, maxDelay = 0,
     ease = 'power3.out', threshold = 0.1, rootMargin = '-100px', tag = 'p', textAlign = 'center',
-    onShuffleComplete, shuffleTimes = 1, animationMode = 'evenodd', loop = false, loopDelay = 0,
+    onShuffleComplete, shuffleTimes = 1, animationMode = 'evenodd', loop = true, loopDelay = 0,
     stagger = 0.03, scrambleCharset = '', colorFrom, colorTo, triggerOnce = true,
     respectReducedMotion = true, triggerOnHover = true,
   } = props;

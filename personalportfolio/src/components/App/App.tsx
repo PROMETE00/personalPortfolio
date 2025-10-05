@@ -16,16 +16,11 @@ export const App: React.FC<AppProps> = ({children}) => {
     const isDark = theme === DARK;
     return (
         <ThemeProvider theme={theme}>
-            <AsideHeader
-                logo={{icon: Ghost, text: 'nextjs-example'}}
-                compact={true}
-                hideCollapseButton={true}
-                renderContent={() => (
+
                     <Wrapper setTheme={setTheme} isDark={isDark}>
                         {children}
                     </Wrapper>
-                )}
-            />
+
         </ThemeProvider>
     );
-};
+};/*  */
